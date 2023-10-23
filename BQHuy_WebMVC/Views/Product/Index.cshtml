@@ -1,0 +1,49 @@
+﻿@model IEnumerable<BussinessObject.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<header class="panel-heading">
+    Management Product
+</header>
+
+<p>
+    @Html.ActionLink("Create","Create","Product", null, new {@class="btn btn-danger"})
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitPrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+            <td>
+                    @Html.ActionLink("Edit", "Edit", new {  id=item.ProductId  },new {@class="text-danger"}) |
+                    @Html.ActionLink("Details", "Details", new {id=item.ProductId },new {@class="text-danger"}) |
+                    @Html.ActionLink("Delete", "Delete", new {id=item.ProductId },new {@class="text-danger"})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
